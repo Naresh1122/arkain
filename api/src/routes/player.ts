@@ -8,6 +8,7 @@ router.get("/:id", async (req, res) => {
   const playerId = req.params.id;
 
   const cacheKey = `player:${playerId}`;
+  console.log("cacheKey",cacheKey);
   const cached = await redis.get(cacheKey);
   if (cached) return res.json(JSON.parse(cached));
 

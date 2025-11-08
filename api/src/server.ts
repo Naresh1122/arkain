@@ -1,3 +1,5 @@
+import dotenv from "dotenv";
+dotenv.config();
 import express from "express";
 import playRoute from "./routes/play";
 import playerRoute from "./routes/player";
@@ -14,7 +16,7 @@ async function start() {
   app.use("/play", playRoute);
   app.use("/player", playerRoute);
 
-  app.listen(3000, () => console.log("🚀 API running on port 3000"));
+  app.listen(3000, () => console.log("API running on port 3000"));
 }
 
 start();

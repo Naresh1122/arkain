@@ -1,10 +1,11 @@
 import { Router } from "express";
 import { getChannel } from "../rabbit";
-
+import { validate } from "../middlewares/validate";
+import { playRequestSchema } from "../schemas/requests/play.schema";
 const router = Router();
 
-router.post("/", async (req, res) => {
-  const { playerId, gameId, betAmount, winAmount } = req.body;
+router.post("/",validate(playRequestSchema), async (req, res) => {
+  const { playerId, gameId} = req.body;
 
   if (!playerId || !gameId) return res.status(400).json({ error: "Invalid payload" });
 

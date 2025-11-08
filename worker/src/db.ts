@@ -16,5 +16,5 @@ export const db = client.db(`${MONGO_DB}`);
 
 export async function connectDB() {
   await client.connect();
-  console.log("✅ MongoDB Connected");
+  console.log("MongoDB Connected");
 }

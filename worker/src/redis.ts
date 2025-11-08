@@ -6,11 +6,11 @@ REDIS_PORT,
 export const redis = createClient({
   socket: {
     host: REDIS_HOST,
-    port: Number(REDIS_PORT) // <— must be a number
+    port: Number(REDIS_PORT)
   }
 });
 
 export async function connectRedis() {
   await redis.connect();
-  console.log("✅ Redis Connected");
+  console.log("Redis Connected");
 }
