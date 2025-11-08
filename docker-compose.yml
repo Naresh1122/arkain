@@ -1,0 +1,33 @@
+services:
+  api:
+    build: ./api
+    container_name: arkain-api
+    ports:
+      - "4000:4000"
+    env_file:
+      - ./api/.env
+    depends_on:
+      - rabbitmq
+      - redis
+
+  worker:
+    build: ./worker
+    container_name: arkain-worker
+    env_file:
+      - ./worker/.env
+    depends_on:
+      - rabbitmq
+      - redis
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: arkain-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  redis:
+    image: redis:latest
+    container_name: arkain-redis
+    ports:
+      - "6379:6379"

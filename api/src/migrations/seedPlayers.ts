@@ -1,18 +1,22 @@
-import { MongoClient } from "mongodb";
+import { db, connectDB } from "../db";
 
-async function seed() {
-  const mongo = new MongoClient("mongodb://127.0.0.1:27017");
-  await mongo.connect();
-  const db = mongo.db("arkain");
-  const players = db.collection("players");
+export async function seedPlayers() {
+  await connectDB();
 
-  const dummyPlayers = [
+  const collectionName = process.env.GAMES_COLLECTION || "games";
+  const playersCollection = db.collection(collectionName);
+
+  const now = new Date();
+
+  const players = [
     {
       playerId: "P001",
       name: "John Doe",
       totalGames: 5,
       totalBets: 500,
       totalWins: 150,
+      createdAt: now,
+      updatedAt: now,
     },
     {
       playerId: "P002",
@@ -20,6 +24,8 @@ async function seed() {
       totalGames: 12,
       totalBets: 1200,
       totalWins: 800,
+      createdAt: now,
+      updatedAt: now,
     },
     {
       playerId: "P003",
@@ -27,13 +33,13 @@ async function seed() {
       totalGames: 3,
       totalBets: 150,
       totalWins: 50,
+      createdAt: now,
+      updatedAt: now,
     },
   ];
 
-  await players.insertMany(dummyPlayers);
+  await playersCollection.deleteMany({});
+  await playersCollection.insertMany(players);
 
-  console.log("✅ Dummy players seeded successfully!");
-  await mongo.close();
+  console.log("✅ Players seeded successfully");
 }
-
-seed().catch(console.error);
