@@ -3,7 +3,7 @@ import { db, connectDB } from "../db";
 export async function seedPlayers() {
   await connectDB();
 
-  const collectionName = process.env.GAMES_COLLECTION || "games";
+  const collectionName = process.env.PLAYERS_COLLECTION || "players";
   const playersCollection = db.collection(collectionName);
 
   const now = new Date();
@@ -11,7 +11,7 @@ export async function seedPlayers() {
   const players = [
     {
       playerId: "P001",
-      name: "John Doe",
+      name: "Naresh",
       totalGames: 5,
       totalBets: 500,
       totalWins: 150,
@@ -20,7 +20,7 @@ export async function seedPlayers() {
     },
     {
       playerId: "P002",
-      name: "Alice Smith",
+      name: "Suresh",
       totalGames: 12,
       totalBets: 1200,
       totalWins: 800,
@@ -29,7 +29,7 @@ export async function seedPlayers() {
     },
     {
       playerId: "P003",
-      name: "Bob Johnson",
+      name: "Harish",
       totalGames: 3,
       totalBets: 150,
       totalWins: 50,
