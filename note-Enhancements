@@ -1,2 +1,5 @@
 -User Login
--Games collection to add the gameid and the name
+-Store the game details like (timings,upcoming,live,inprogress) this will helpful to see the user to check the details.
+-Display the game list which user has choosed for the bettings.
+-Write the cron job to settle the winning amount.
+-Store the spots related data to display to the user.
