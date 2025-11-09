@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "0cc1efab-04b9-4aea-bc84-2b0a469047d7",
+		"name": "Backend-APis Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3718933"
+	},
+	"item": [
+		{
+			"name": "player-history",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/player/plays/P001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"player",
+						"plays",
+						"P001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "player-summary",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/player/P001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"player",
+						"P001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "games",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/games",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"games"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "play",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"playerId\": \"P002\",\r\n    \"gameId\": \"G003\",\r\n    \"betAmount\": 50,\r\n    \"winAmount\": 10\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/play",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"play"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
